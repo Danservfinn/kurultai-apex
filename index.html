@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kurultai — independent AI agent lab, Raleigh NC</title>
+<meta name="description" content="Independent AI agent lab in Raleigh, North Carolina, run by Daniel Finn. Governed agent systems research, open tooling, and the ParseThis agent governance platform.">
+<link rel="canonical" href="https://kurult.ai/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml">
+<meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kurult.ai/">
+<meta property="og:title" content="Kurultai — independent AI agent lab">
+<meta property="og:description" content="Governed agent systems research, open tooling, and the ParseThis agent governance platform. Run by Daniel Finn, Raleigh NC.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebSite","@id":"https://kurult.ai/#website","url":"https://kurult.ai/","name":"Kurultai","publisher":{"@id":"https://kurult.ai/#org"}},
+{"@type":"Organization","@id":"https://kurult.ai/#org","name":"Kurultai","alternateName":"Kurultai Labs","url":"https://kurult.ai/","logo":"https://kurult.ai/mark.svg","disambiguatingDescription":"Independent AI agent research lab; not the historical Mongol assembly, for which it is named","founder":{"@id":"https://kurult.ai/#person"},"sameAs":["https://github.com/Danservfinn","https://blog.kurult.ai"],"knowsAbout":["AI agents","agent governance","recursive self-improvement","LLM evaluation"]},
+{"@type":"Person","@id":"https://kurult.ai/#person","name":"Daniel Finn","jobTitle":"Enterprise Solutions Architect","worksFor":{"@id":"https://kurult.ai/#org"},"sameAs":["https://danielfinn.kurult.ai","https://linkedin.com/in/danservfinn","https://github.com/Danservfinn"]},
+{"@type":"SoftwareApplication","name":"ParseThis","url":"https://parsethis.ai","applicationCategory":"Agent governance platform","creator":{"@id":"https://kurult.ai/#org"}}
+]}
+</script>
+<style>
+:root{
+  --paper:#faf7f2; --ink:#211d18; --ink-soft:#5c564c; --accent:#3d6b4f;
+  --hairline:rgba(33,29,24,.18); --hairline-soft:rgba(33,29,24,.09);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#141311; --ink:#e9e4da; --ink-soft:#a39c8e; --accent:#8db89b;
+    --hairline:rgba(233,228,218,.22); --hairline-soft:rgba(233,228,218,.1);
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  font-size:1.0625rem; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  min-height:100svh;
+  background-image:radial-gradient(circle at 50% -20%, var(--hairline-soft), transparent 60%);
+}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace}
+.page{max-width:44rem; margin-inline:max(1.25rem,10vw) auto; padding:clamp(3rem,9vh,6.5rem) 1.25rem 4rem}
+a{color:var(--accent); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.2em}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:1px}
+
+header .mark{width:44px;height:44px;color:var(--accent);margin-bottom:1.4rem}
+h1{font-size:clamp(2.4rem,6vw,3.4rem); font-weight:500; letter-spacing:.01em; line-height:1.1}
+.tagline{font-style:italic; font-size:1.2rem; color:var(--ink-soft); margin-top:.6rem; max-width:34rem}
+.operator{margin-top:1.1rem; font-size:.98rem}
+
+section{margin-top:clamp(2.8rem,7vh,4.2rem)}
+.label{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  font-size:.68rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--ink-soft); display:block; margin-bottom:1rem;
+  padding-top:.9rem; border-top:1px solid var(--hairline);
+}
+@media (min-width:66rem){
+  header, section{display:grid; grid-template-columns:11rem minmax(0,1fr); column-gap:2.2rem}
+  header > *{grid-column:2}
+  header .mark{grid-column:1; justify-self:end; margin-top:.5rem}
+  footer{padding-left:13.2rem}
+  .label{grid-column:1; border-top:none; padding-top:.25rem; text-align:right; margin-bottom:0; white-space:nowrap}
+  .body{grid-column:2; border-top:1px solid var(--hairline); padding-top:1rem}
+}
+.aside{
+  margin-top:1.1rem; padding-left:1rem; border-left:2px solid var(--accent);
+  color:var(--ink-soft); font-size:.95rem; font-style:italic; max-width:32rem;
+}
+.aside i{font-style:normal}
+
+.stamp{font-size:.8rem; color:var(--ink-soft); letter-spacing:.08em; text-transform:uppercase; margin-bottom:.9rem}
+.ledger{list-style:none}
+.ledger li{
+  display:grid; grid-template-columns:5.2rem minmax(0,1fr); column-gap:1.1rem;
+  padding:.7rem 0; border-bottom:1px solid var(--hairline-soft); align-items:baseline;
+}
+.ledger .n{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  font-variant-numeric:tabular-nums; font-size:1.05rem; color:var(--accent); text-align:right;
+}
+.ledger .rule-row{grid-template-columns:minmax(0,1fr)}
+.fineprint{margin-top:.8rem; font-size:.85rem; color:var(--ink-soft); font-style:italic}
+
+.dir{list-style:none}
+.dir li{padding:.85rem 0; border-bottom:1px solid var(--hairline-soft)}
+.dir .k{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft);
+  display:block; margin-bottom:.15rem;
+}
+.dir .name{font-weight:600}
+.dir .desc{color:var(--ink-soft); font-size:.97rem}
+
+footer{
+  margin-top:clamp(3rem,8vh,5rem); padding-top:1.1rem; border-top:1px solid var(--hairline);
+  font-size:.88rem; color:var(--ink-soft); display:flex; flex-wrap:wrap; gap:.35rem 1.4rem;
+}
+footer a{color:inherit}
+
+@media (prefers-reduced-motion: no-preference){
+  .rise{opacity:0; transform:translateY(9px); animation:rise .55s ease-out forwards}
+  header.rise{animation-delay:.02s}
+  section.rise:nth-of-type(1){animation-delay:.1s}
+  section.rise:nth-of-type(2){animation-delay:.18s}
+  section.rise:nth-of-type(3){animation-delay:.26s}
+  footer.rise{animation-delay:.34s}
+  @keyframes rise{to{opacity:1; transform:none}}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="rise">
+  <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Kurultai mark: a ring of seven points around one">
+    <g fill="currentColor">
+      <circle cx="32" cy="32" r="4.5"/>
+      <circle cx="32" cy="12" r="3.2"/>
+      <circle cx="47.6" cy="19.5" r="3.2"/>
+      <circle cx="51.5" cy="36.5" r="3.2"/>
+      <circle cx="40.7" cy="50" r="3.2"/>
+      <circle cx="23.3" cy="50" r="3.2"/>
+      <circle cx="12.5" cy="36.5" r="3.2"/>
+      <circle cx="16.4" cy="19.5" r="3.2"/>
+    </g>
+  </svg>
+  <h1>Kurultai</h1>
+  <p class="tagline">An independent lab that builds, runs, and documents governed AI agent systems.</p>
+  <p class="operator">Built and run by <a href="https://danielfinn.kurult.ai" rel="me">Daniel Finn</a>.</p>
+</header>
+
+<section class="rise" aria-labelledby="l1">
+  <span class="label mono" id="l1">01 · The lab</span>
+  <div class="body">
+    <p>Kurultai is a research practice, not a startup: one operator and an autonomous agent fleet, working on self-hosted infrastructure in a personal capacity. Nothing ships until it passes a review gate; what survives review is published openly. The work is governed autonomy&thinsp;—&thinsp;agent systems that act on their own without escaping their gates.</p>
+    <p class="aside"><i>kurultai</i>, n.&thinsp;—&thinsp;the assembly that chose the khans. Decisions required a quorum. They still do: agents propose, gates decide.</p>
+  </div>
+</section>
+
+<section class="rise" aria-labelledby="l2">
+  <span class="label mono" id="l2">02 · The ledger</span>
+  <div class="body">
+    <p class="stamp mono">As of August 2026</p>
+    <ul class="ledger">
+      <li><span class="n">10+</span><span>research reports drafted by agents, gate-checked, hash-bound, and published autonomously at <a href="https://blog.kurult.ai">Kurultai Research</a></span></li>
+      <li><span class="n">3,000+</span><span>tasks completed by a seven-profile agent fleet</span></li>
+      <li><span class="n">60+</span><span>deterministic verifiers written to check the system&rsquo;s own work</span></li>
+      <li class="rule-row"><span>Every change lands through a review gate and leaves a receipt.</span></li>
+    </ul>
+    <p class="fineprint">Stamped by hand; may lag. The linked live surfaces are canonical.</p>
+  </div>
+</section>
+
+<section class="rise" aria-labelledby="l3">
+  <span class="label mono" id="l3">03 · Directory</span>
+  <div class="body">
+    <ul class="dir">
+      <li>
+        <span class="k">Research</span>
+        <span class="name"><a href="https://blog.kurult.ai">Kurultai Research</a></span>
+        <p class="desc">Reviewed reports on governed agent systems, readable by humans and by agents.</p>
+      </li>
+      <li>
+        <span class="k">Code</span>
+        <span class="name"><a href="https://github.com/Danservfinn" rel="me">GitHub — Danservfinn</a></span>
+        <p class="desc">Agent-system contracts, an RSI safety framework, knowledge tooling.</p>
+      </li>
+      <li>
+        <span class="k">Operator</span>
+        <span class="name"><a href="https://danielfinn.kurult.ai" rel="me">Daniel Finn</a></span>
+        <p class="desc">Enterprise solutions architect&thinsp;—&thinsp;regulated fintech and applied AI.</p>
+      </li>
+      <li>
+        <span class="k">Product</span>
+        <span class="name"><a href="https://parsethis.ai">ParseThis</a></span>
+        <p class="desc">Agent governance platform, built on this lab&rsquo;s operating practice.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer class="rise">
+  <span>Kurultai</span>
+  <span>Raleigh, North Carolina</span>
+  <a href="mailto:d@kurult.ai">d@kurult.ai</a>
+  <span>© 2026 Kurultai</span>
+</footer>
+
+</div>
+</body>
+</html>
