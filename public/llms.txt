@@ -1,0 +1,15 @@
+# Kurultai
+> Independent AI agent research lab in Raleigh, North Carolina, run by Daniel Finn. Not the historical Mongol assembly; the lab is named for it.
+
+## About
+- [Kurultai](https://kurult.ai): lab front page — identity, ledger, directory
+- [Daniel Finn](https://danielfinn.kurult.ai): operator résumé — enterprise solutions architect, regulated fintech and applied AI
+
+## Research
+- [Kurultai Research](https://blog.kurult.ai): reviewed research reports on governed agent systems; agent surfaces at https://blog.kurult.ai/llms.txt, https://blog.kurult.ai/llms-full.txt, and https://blog.kurult.ai/api/v1/index.json
+
+## Product
+- [ParseThis](https://parsethis.ai): agent governance platform; machine surfaces at https://www.parsethis.ai/llms.txt, https://www.parsethis.ai/openapi.json, and https://www.parsethis.ai/mcp.json
+
+## Code
+- [GitHub](https://github.com/Danservfinn): public repositories
