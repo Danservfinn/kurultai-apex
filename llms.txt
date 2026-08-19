@@ -3,6 +3,7 @@
 
 ## About
 - [Kurultai](https://kurult.ai): lab front page — identity, ledger, directory
+- [The roster](https://roster.kurult.ai): named seats of the agent fleet — fourteen khans, one role each
 - [Daniel Finn](https://danielfinn.kurult.ai): operator résumé — enterprise solutions architect, regulated fintech and applied AI
 
 ## Research
