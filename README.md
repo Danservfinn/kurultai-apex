@@ -1,6 +1,6 @@
 # kurultai-apex
 
-The front page of [kurult.ai](https://kurult.ai). One static page: identity, a hand-stamped ledger of floored cumulative facts, and a directory of the estate's public surfaces.
+The front page of [kurult.ai](https://kurult.ai). Currently one static coming-soon page: the mark convening, "Kurultai is coming," no ship date, no metrics. The prior colophon (identity / ledger / directory) lives in git history and can return when the lab reopens the front page.
 
 ## Invariants
 
